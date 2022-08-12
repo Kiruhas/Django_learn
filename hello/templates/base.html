@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Django learning{% endblock title %}</title>
+</head>
+<body>
+  <h2>{% block message %}Welcome to Django{% endblock message %}</h2>
+  {% if n > 0 %}
+    <p>Число положительное</p>
+  {% endif %}
+</body>
+</html>
