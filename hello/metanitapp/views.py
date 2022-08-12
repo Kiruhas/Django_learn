@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
-
+from django.contrib import admin
 from .forms import UserForm
+from .models import Post
+
+admin.site.register(Post)
 
 def index(request):
   return render(request, "index.html", context={"n":5})
@@ -37,4 +40,11 @@ def userform(request):
   else:
     user_form = UserForm()
     return render(request, "userform.html", {"form":user_form})
+
+def posts(request):
+  context = {
+    'title': "Все посты",
+    'posts': Post.objects.all(),
+  }
+  return render(request, "posts.html", context)
 
